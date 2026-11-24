@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de plataformas" %}{% endblock %}
+
+{% block contenido %}
+<h2>{% trans "Lista de plataformas" %}</h2>
+{% if plataformas %}
+    <div class="cajas">
+    {% for pl in plataformas %}
+        <div class="caja pl-caja pl-{{ pl.nombre|slugify }}">
+            <h3><a href="{% url 'plataforma' pl.id %}">{{ pl.nombre }}</a></h3>
+            <p>{% trans "Ver podcasts disponibles" %} &rarr;</p>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>{% trans "No hay plataformas creadas." %}</p>
+{% endif %}
+{% endblock %}

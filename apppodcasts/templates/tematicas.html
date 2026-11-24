@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de temáticas" %}{% endblock %}
+
+{% block contenido %}
+<h2>{% trans "Lista de temáticas" %}</h2>
+{% if tematicas %}
+    <div class="cajas">
+    {% for t in tematicas|dictsort:"nombre_t" %}
+        <div class="caja">
+            <h3><a href="{% url 'tematica' t.id %}">{{ t.nombre_t }}</a></h3>
+            <p>{{ t.descripcion_t|truncatewords:15 }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>{% trans "No hay temáticas creadas." %}</p>
+{% endif %}
+{% endblock %}

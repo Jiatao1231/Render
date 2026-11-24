@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{{ podcast.nombre }}{% endblock %}
+
+{% block contenido %}
+<nav class="barra-navegacion-detalle" aria-label="{% trans 'Navegación entre podcasts' %}">
+    <a class="btn-nav js-volver" href="{% url 'podcasts' %}">&larr; {% trans "Volver a la lista" %}</a>
+    <div class="nav-paginacion">
+        {% if anterior %}
+            <a id="btn-anterior" class="btn-nav" href="{% url 'podcast' anterior.id %}" title="{% trans 'Atajo: tecla flecha izquierda' %}">&laquo; {{ anterior.nombre|truncatechars:20 }}</a>
+        {% else %}
+            <span class="btn-nav deshabilitado">&laquo; {% trans "Anterior" %}</span>
+        {% endif %}
+
+        {% if siguiente %}
+            <a id="btn-siguiente" class="btn-nav" href="{% url 'podcast' siguiente.id %}" title="{% trans 'Atajo: tecla flecha derecha' %}">{{ siguiente.nombre|truncatechars:20 }} &raquo;</a>
+        {% else %}
+            <span class="btn-nav deshabilitado">{% trans "Siguiente" %} &raquo;</span>
+        {% endif %}
+    </div>
+</nav>
+
+<h2>{{ podcast.nombre }}</h2>
+<p>{{ podcast.descripcion_t }}</p>
+<table>
+    <tr>
+        <th>{% trans "Temática" %}</th>
+        <td><a href="{% url 'tematica' podcast.tematica.id %}">{{ podcast.tematica.nombre_t }}</a></td>
+    </tr>
+    <tr>
+        <th>{% trans "Fecha" %}</th>
+        <td>{{ podcast.fecha|date:"d/m/Y" }}</td>
+    </tr>
+</table>
+
+<h3>{% trans "Disponible en" %}</h3>
+{% if plataformas %}
+    <ul class="botones">
+    {% for pl in plataformas %}
+        <li><a class="pl-{{ pl.nombre|slugify }}" href="{% url 'plataforma' pl.id %}">{{ pl.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>{% trans "No está en ninguna plataforma." %}</p>
+{% endif %}
+
+<section class="seccion-comentarios">
+    <h3>{% trans "Comentarios" %} (<span id="total-comentarios">{{ comentarios|length }}</span>)</h3>
+
+    <form method="post" id="form-comentario" class="form-comentario">
+        {% csrf_token %}
+        <h4>{% trans "Deja tu comentario" %}</h4>
+        <div id="mensaje-ajax" class="mensaje-ajax oculto"></div>
+        {{ form.as_p }}
+        <button type="submit" id="btn-publicar" class="boton-enviar">{% trans "Publicar comentario" %}</button>
+    </form>
+
+    <div id="lista-comentarios" class="lista-comentarios">
+    {% for c in comentarios %}
+        <article class="comentario-item">
+            <div class="comentario-cabecera">
+                <strong>{{ c.autor }}</strong>
+                <span class="etiqueta">{{ c.get_valoracion_display }}</span>
+                <span class="comentario-fecha">{{ c.fecha|date:"d/m/Y H:i" }}</span>
+            </div>
+            <p>{{ c.texto }}</p>
+        </article>
+    {% endfor %}
+    </div>
+
+    {% if not comentarios %}
+        <p id="sin-comentarios">{% trans "Todavía no hay comentarios para este podcast. ¡Sé el primero en opinar!" %}</p>
+    {% endif %}
+</section>
+{% endblock %}

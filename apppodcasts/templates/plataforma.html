@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{{ plataforma.nombre }}{% endblock %}
+
+{% block contenido %}
+<p class="volver"><a href="{% url 'plataformas'%}">&larr; {% trans "Volver a plataformas" %}</a></p>
+<div class="banner-plataforma pl-{{ plataforma.nombre|slugify }}">
+    <h2>{{ plataforma.nombre }}</h2>
+    <a class="boton-web" href="{{ plataforma.web }}" target="_blank" rel="noopener">{% blocktrans with nombre=plataforma.nombre %}Visitar {{ nombre }}{% endblocktrans %} &rarr;</a>
+</div>
+<h3>{% trans "Podcasts disponibles" %}</h3>
+{% if podcasts %}
+    <ul class="lista">
+    {% for p in podcasts %}
+        <li>
+            <a href="{% url 'podcast' p.id %}">{{ p.nombre }}</a>
+            <span class="etiqueta"><a href="{% url 'tematica' p.tematica.id %}">{{ p.tematica.nombre_t }}</a></span>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>{% trans "No hay podcasts en esta plataforma." %}</p>
+{% endif %}
+{% endblock %}

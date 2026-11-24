@@ -1,0 +1,44 @@
+{% load static i18n %}
+{% get_current_language as IDIOMA_ACTUAL %}
+{% get_available_languages as IDIOMAS %}
+<!DOCTYPE html>
+<html lang="{{ IDIOMA_ACTUAL }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block titulo %}Podcast Planet{% endblock %} - Podcast Planet</title>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    </head>
+    <body>
+        <div id="pagina">
+            <header>
+                <h1><a href="{% url 'index'%}">Podcast Planet</a></h1>
+                <p>{% trans "Descubre qué escuchar y dónde escucharlo" %}</p>
+                <form action="{% url 'set_language' %}" method="post" class="selector-idioma" aria-label="{% trans 'Idioma' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                    {% for codigo, nombre in IDIOMAS %}
+                        <button type="submit" name="language" value="{{ codigo }}" lang="{{ codigo }}" title="{{ nombre }}"{% if codigo == IDIOMA_ACTUAL %} class="idioma-actual" aria-current="true"{% endif %}>{{ codigo|upper }}</button>
+                    {% endfor %}
+                </form>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">{% trans "Portada" %}</a></li>
+                    <li><a href="{% url 'podcasts' %}">{% trans "Podcasts" %}</a></li>
+                    <li><a href="{% url 'tematicas' %}">{% trans "Temáticas" %}</a></li>
+                    <li><a href="{% url 'plataformas' %}">{% trans "Plataformas" %}</a></li>
+                </ul>
+            </nav>
+            <main>
+                {% block contenido %}{% endblock %}
+            </main>
+            <footer>
+                <p>{% trans "Podcast Planet - Grupo 06 Mikel, Jiatao y Anne" %}</p>
+            </footer>
+        </div>
+        <button type="button" id="btn-subir" class="btn-subir" title="{% trans 'Volver arriba' %}">&uarr;</button>
+        <script src="{% url 'javascript-catalog' %}"></script>
+        <script src="{% static 'js/app.js' %}" defer></script>
+    </body>
+</html>

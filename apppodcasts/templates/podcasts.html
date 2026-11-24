@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Lista de podcasts" %}{% endblock %}
+
+{% block contenido %}
+<h2>{% trans "Lista de podcasts" %}</h2>
+{% if podcasts %}
+    <div class="barra-filtro">
+        <input type="search" id="buscador-podcasts" placeholder="{% trans 'Filtrar podcasts por nombre o temática...' %}" autocomplete="off">
+        <span id="contador-podcasts" class="contador-filtro">{% blocktrans with visibles=podcasts|length total=podcasts|length %}Mostrando {{ visibles }} de {{ total }}{% endblocktrans %}</span>
+    </div>
+
+    <ul id="lista-podcasts" class="lista">
+    {% for p in podcasts %}
+        <li>
+            <a href="{% url 'podcast' p.id %}">{{ p.nombre }}</a>
+            <span class="etiqueta"><a href="{% url 'tematica' p.tematica.id %}">{{ p.tematica.nombre_t }}</a></span>
+        </li>
+    {% endfor %}
+    </ul>
+    <p id="sin-resultados" class="oculto">{% trans "No se han encontrado podcasts que coincidan con tu búsqueda." %}</p>
+{% else %}
+    <p>{% trans "No hay podcasts creados." %}</p>
+{% endif %}
+{% endblock %}

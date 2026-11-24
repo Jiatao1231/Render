@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{{ tematica.nombre_t }}{% endblock %}
+
+{% block contenido %}
+<p class="volver"><a href="{% url 'tematicas' %}">&larr; {% trans "Volver a temáticas" %}</a></p>
+<h2>{{ tematica.nombre_t }}</h2>
+<p>{{ tematica.descripcion_t }}</p>
+<h3>{% trans "Podcasts de esta temática" %}</h3>
+{% if podcasts %}
+    <ul class="lista">
+    {% for p in podcasts %}
+        <li><a href="{% url 'podcast' p.id %}">{{ p.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>{% trans "No hay podcasts en esta temática." %}</p>
+{% endif %}
+{% endblock %}

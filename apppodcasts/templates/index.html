@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block titulo %}{% trans "Portada" %}{% endblock %}
+
+{% block contenido %}
+<h2>{% trans "Último podcast de cada temática" %}</h2>
+{% if destacados %}
+    <div class="cajas">
+    {% for p in destacados|dictsort:"tematica.nombre_t" %}
+        <div class="caja">
+            <p class="etiqueta"><a href="{% url 'tematica' p.tematica.id %}">{{ p.tematica.nombre_t }}</a></p>
+            <h3><a href="{% url 'podcast' p.id %}">{{ p.nombre }}</a></h3>
+            <p>{{ p.descripcion_t|truncatewords:15 }}</p>
+        </div>
+    {% endfor %}
+    </div>
+{% else %}
+    <p>{% trans "No hay podcasts creados." %}</p>
+{% endif %}
+{% endblock %}
