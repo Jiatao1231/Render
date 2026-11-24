@@ -1,0 +1,649 @@
+/* ---------- colores base (paleta azul) ---------- */
+:root {
+    --azul-fondo: #e8f0fa;
+    --azul-claro: #f3f8fe;
+    --azul-borde: #cfe0f5;
+    --azul-suave: #dbe8f8;
+    --azul-medio: #1f6fd1;
+    --azul-oscuro: #12408f;
+    --azul-noche: #0c2f6b;
+
+    /* color por defecto de una plataforma (se sobrescribe abajo) */
+    --pl: #1f6fd1;
+    --pl-texto: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: var(--azul-fondo);
+    color: #333333;
+}
+
+a {
+    color: var(--azul-medio);
+}
+
+a:hover {
+    color: #0b3a82;
+}
+
+#pagina {
+    width: 860px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-left: 1px solid #c5d6ee;
+    border-right: 1px solid #c5d6ee;
+}
+
+/* cabecera */
+header {
+    position: relative;
+    padding: 25px 30px 20px 30px;
+    background-color: var(--azul-oscuro);
+    color: #ffffff;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 34px;
+}
+
+header h1 a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+header p {
+    margin: 5px 0 0 0;
+    color: #cfe0fa;
+}
+
+/* menu */
+nav {
+    background-color: var(--azul-noche);
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    padding: 12px 22px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #2a7de1;
+    color: #ffffff;
+}
+
+/* contenido */
+main {
+    padding: 25px 30px;
+    min-height: 350px;
+}
+
+h2 {
+    margin-top: 0;
+    padding-bottom: 8px;
+    color: var(--azul-oscuro);
+    border-bottom: 2px solid #d9e6f7;
+}
+
+h3 {
+    color: var(--azul-noche);
+}
+
+.volver {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+/* ---------- cajas de portada y listados ---------- */
+/* rejilla: todas las cajas de una fila miden lo mismo */
+.cajas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.caja {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background-color: var(--azul-claro);
+    border: 1px solid var(--azul-borde);
+    border-top: 4px solid var(--azul-medio);
+    border-radius: 6px;
+    transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.caja:hover {
+    box-shadow: 0 4px 12px rgba(18, 64, 143, 0.15);
+    transform: translateY(-2px);
+}
+
+.caja h3 {
+    margin: 10px 0 8px 0;
+    font-size: 17px;
+}
+
+.caja p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.caja .etiqueta {
+    align-self: flex-start;
+    margin-bottom: 0;
+}
+
+/* etiquetas de tematica */
+.etiqueta {
+    display: inline-block;
+    padding: 2px 10px;
+    background-color: var(--azul-suave);
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.etiqueta a {
+    text-decoration: none;
+}
+
+/* listas */
+.lista {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista li {
+    padding: 10px 5px;
+    border-bottom: 1px solid #e1eaf6;
+}
+
+.lista li:hover {
+    background-color: var(--azul-claro);
+}
+
+.lista .etiqueta {
+    margin-left: 10px;
+}
+
+/* ---------- colores representativos de cada plataforma ---------- */
+.pl-spotify {
+    --pl: #1db954;
+    --pl-texto: #06230f;
+}
+
+.pl-apple-podcasts {
+    --pl: #8e3cc9;
+    --pl-texto: #ffffff;
+}
+
+.pl-ivoox {
+    --pl: #f26b1d;
+    --pl-texto: #ffffff;
+}
+
+.pl-youtube-music {
+    --pl: #e60000;
+    --pl-texto: #ffffff;
+}
+
+.pl-amazon-music {
+    --pl: #25d1da;
+    --pl-texto: #00262b;
+}
+
+/* caja de plataforma (listado de plataformas) */
+.caja.pl-caja {
+    position: relative;
+    justify-content: center;
+    min-height: 120px;
+    background-color: var(--pl);
+    border-color: var(--pl);
+    color: var(--pl-texto);
+}
+
+.caja.pl-caja h3 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+}
+
+.caja.pl-caja h3 a {
+    color: var(--pl-texto);
+    text-decoration: none;
+}
+
+/* toda la caja es clicable */
+.caja.pl-caja h3 a::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.caja.pl-caja:hover {
+    filter: brightness(0.92);
+}
+
+/* plataformas de un podcast */
+.botones {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.botones li {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.botones a {
+    display: block;
+    padding: 8px 16px;
+    background-color: var(--pl);
+    border-radius: 4px;
+    color: var(--pl-texto);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.botones a:hover {
+    color: var(--pl-texto);
+    filter: brightness(0.9);
+}
+
+/* cabecera de la pagina de una plataforma */
+.banner-plataforma {
+    margin-bottom: 20px;
+    padding: 22px 25px;
+    background-color: var(--pl);
+    border-radius: 6px;
+    color: var(--pl-texto);
+}
+
+.banner-plataforma h2 {
+    margin: 0 0 14px 0;
+    padding: 0;
+    border: none;
+    color: var(--pl-texto);
+}
+
+.banner-plataforma .boton-web {
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: var(--pl-texto);
+    border-radius: 4px;
+    color: var(--pl);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.banner-plataforma .boton-web:hover {
+    color: var(--pl);
+    opacity: 0.85;
+}
+
+/* tabla de datos */
+table {
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+th, td {
+    padding: 8px 15px;
+    border: 1px solid var(--azul-borde);
+    text-align: left;
+}
+
+th {
+    background-color: #eaf2fc;
+}
+
+/* pie */
+footer {
+    padding: 15px;
+    background-color: var(--azul-noche);
+    color: #cfe0fa;
+    text-align: center;
+    font-size: 13px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* movil */
+@media (max-width: 880px) {
+    #pagina {
+        width: auto;
+    }
+
+    .cajas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .cajas {
+        grid-template-columns: 1fr;
+    }
+
+    nav li {
+        float: none;
+    }
+}
+
+/* ---------- comentarios y formulario ---------- */
+.seccion-comentarios {
+    clear: both;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 2px solid #d9e6f7;
+}
+
+.form-comentario {
+    margin-bottom: 24px;
+    padding: 18px 20px;
+    background-color: var(--azul-claro);
+    border: 1px solid var(--azul-borde);
+    border-radius: 6px;
+}
+
+.form-comentario h4 {
+    margin: 0 0 12px 0;
+    color: var(--azul-oscuro);
+}
+
+.form-comentario p {
+    margin: 0 0 12px 0;
+}
+
+.form-comentario label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--azul-noche);
+}
+
+.form-comentario input[type="text"],
+.form-comentario select,
+.form-comentario textarea {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px 10px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid var(--azul-borde);
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.boton-enviar {
+    padding: 9px 18px;
+    background-color: var(--azul-medio);
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.boton-enviar:hover {
+    background-color: var(--azul-oscuro);
+}
+
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.comentario-item {
+    padding: 14px 16px;
+    background-color: #ffffff;
+    border: 1px solid var(--azul-borde);
+    border-left: 4px solid var(--azul-medio);
+    border-radius: 6px;
+}
+
+.comentario-cabecera {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.comentario-fecha {
+    margin-left: auto;
+    font-size: 12px;
+    color: #666666;
+}
+
+.comentario-item p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+/* ---------- mejoras cliente JS (navegacion, filtro, efectos, AJAX) ---------- */
+.oculto {
+    display: none !important;
+}
+
+@keyframes aparecerSuave {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: aparecerSuave 0.25s ease-out;
+}
+
+/* barra de navegacion en ficha de podcast */
+.barra-navegacion-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--azul-borde);
+    background-color: transparent;
+}
+
+.nav-paginacion {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-nav {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--azul-claro);
+    border: 1px solid var(--azul-borde);
+    border-radius: 4px;
+    color: var(--azul-oscuro);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s;
+}
+
+a.btn-nav:hover {
+    background-color: var(--azul-medio);
+    border-color: var(--azul-medio);
+    color: #ffffff;
+}
+
+.btn-nav.deshabilitado {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* buscador de podcasts */
+.barra-filtro {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.barra-filtro input[type="search"] {
+    flex: 1;
+    min-width: 220px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid var(--azul-borde);
+    border-radius: 4px;
+}
+
+.contador-filtro {
+    font-size: 13px;
+    color: #555555;
+}
+
+/* feedback AJAX y animacion de nuevo comentario */
+.mensaje-ajax {
+    margin-bottom: 12px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.mensaje-ajax.exito {
+    background-color: #e3f7e8;
+    border: 1px solid #9ad6aa;
+    color: #155724;
+}
+
+.mensaje-ajax.error {
+    background-color: #fde8e8;
+    border: 1px solid #f5b7b7;
+    color: #842029;
+}
+
+.comentario-nuevo {
+    border-left-color: #1db954;
+    animation: aparecerSuave 0.35s ease-out;
+}
+
+/* boton flotante subir arriba */
+.btn-subir {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--azul-oscuro);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.2s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-subir.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.btn-subir:hover {
+    background-color: var(--azul-medio);
+    transform: translateY(-2px);
+}
+.resaltado-busqueda {
+    font-weight: bold;
+    color: var(--azul-noche);
+    background-color: var(--azul-suave);
+    border-radius: 2px;
+}
+/* ---------- rendimiento: carga parcial de <main> y estado activo en menu ---------- */
+main {
+    transition: opacity 0.15s ease;
+}
+
+main.cargando-main {
+    opacity: 0.55;
+}
+
+nav a.activo {
+    background-color: var(--azul-medio);
+    font-weight: bold;
+}
+
+/* ---------- selector de idioma ---------- */
+.selector-idioma {
+    position: absolute;
+    top: 14px;
+    right: 30px;
+    display: flex;
+    gap: 4px;
+}
+
+.selector-idioma button {
+    padding: 4px 10px;
+    font: bold 12px Verdana, Arial, sans-serif;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #5f8fd6;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.selector-idioma button:hover {
+    background-color: #2a7de1;
+    border-color: #2a7de1;
+}
+
+.selector-idioma button.idioma-actual {
+    color: var(--azul-oscuro);
+    background-color: #ffffff;
+    border-color: #ffffff;
+    cursor: default;
+}
+
+@media (max-width: 520px) {
+    .selector-idioma {
+        position: static;
+        margin-top: 12px;
+    }
+}
