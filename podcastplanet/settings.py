@@ -80,9 +80,8 @@ WSGI_APPLICATION = 'podcastplanet.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        # En local sigue usando SQLite; en Render usa DATABASE_URL (PostgreSQL)
-        default=f'sqlite:///{BASE_DIR / "db.sqlite3"}',
-        conn_max_age=600,
+        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        conn_max_age=600
     )
 }
 
