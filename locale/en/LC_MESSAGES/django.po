@@ -1,0 +1,221 @@
+# English translation for Podcast Planet (django).
+# Grupo 06 - Mikel, Jiatao y Anne.
+msgid ""
+msgstr ""
+"Project-Id-Version: Podcast Planet 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-24 10:11+0000\n"
+"PO-Revision-Date: 2026-11-24 10:11+0000\n"
+"Last-Translator: Grupo 06 <grupo06@example.com>\n"
+"Language: en\n"
+"Language-Team: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: apppodcasts/templates/base.html:16
+msgid "Descubre qué escuchar y dónde escucharlo"
+msgstr "Discover what to listen to and where to listen to it"
+
+#: apppodcasts/templates/base.html:17
+msgid "Idioma"
+msgstr "Language"
+
+#: apppodcasts/templates/base.html:27 apppodcasts/templates/index.html:4
+msgid "Portada"
+msgstr "Home"
+
+#: apppodcasts/templates/base.html:28
+msgid "Podcasts"
+msgstr "Podcasts"
+
+#: apppodcasts/templates/base.html:29
+msgid "Temáticas"
+msgstr "Topics"
+
+#: apppodcasts/templates/base.html:30
+msgid "Plataformas"
+msgstr "Platforms"
+
+#: apppodcasts/templates/base.html:37
+msgid "Podcast Planet - Grupo 06 Mikel, Jiatao y Anne"
+msgstr "Podcast Planet - Group 06 Mikel, Jiatao and Anne"
+
+#: apppodcasts/templates/base.html:40
+msgid "Volver arriba"
+msgstr "Back to top"
+
+#: apppodcasts/templates/index.html:7
+msgid "Último podcast de cada temática"
+msgstr "Latest podcast from each topic"
+
+#: apppodcasts/templates/index.html:19 apppodcasts/templates/podcasts.html:24
+msgid "No hay podcasts creados."
+msgstr "There are no podcasts yet."
+
+#: apppodcasts/templates/plataforma.html:7
+msgid "Volver a plataformas"
+msgstr "Back to platforms"
+
+#: apppodcasts/templates/plataforma.html:12
+msgid "Podcasts disponibles"
+msgstr "Available podcasts"
+
+#: apppodcasts/templates/plataforma.html:23
+msgid "No hay podcasts en esta plataforma."
+msgstr "There are no podcasts on this platform."
+
+#: apppodcasts/templates/plataforma.html:10
+#, python-format
+msgid "Visitar %(nombre)s"
+msgstr "Visit %(nombre)s"
+
+#: apppodcasts/templates/plataformas.html:4
+#: apppodcasts/templates/plataformas.html:7
+msgid "Lista de plataformas"
+msgstr "List of platforms"
+
+#: apppodcasts/templates/plataformas.html:13
+msgid "Ver podcasts disponibles"
+msgstr "See available podcasts"
+
+#: apppodcasts/templates/plataformas.html:18
+msgid "No hay plataformas creadas."
+msgstr "There are no platforms yet."
+
+#: apppodcasts/templates/podcast.html:7
+msgid "Navegación entre podcasts"
+msgstr "Navigation between podcasts"
+
+#: apppodcasts/templates/podcast.html:8
+msgid "Volver a la lista"
+msgstr "Back to the list"
+
+#: apppodcasts/templates/podcast.html:11
+msgid "Atajo: tecla flecha izquierda"
+msgstr "Shortcut: left arrow key"
+
+#: apppodcasts/templates/podcast.html:13
+msgid "Anterior"
+msgstr "Previous"
+
+#: apppodcasts/templates/podcast.html:17
+msgid "Atajo: tecla flecha derecha"
+msgstr "Shortcut: right arrow key"
+
+#: apppodcasts/templates/podcast.html:19
+msgid "Siguiente"
+msgstr "Next"
+
+#: apppodcasts/templates/podcast.html:28
+msgid "Temática"
+msgstr "Topic"
+
+#: apppodcasts/templates/podcast.html:32
+msgid "Fecha"
+msgstr "Date"
+
+#: apppodcasts/templates/podcast.html:37
+msgid "Disponible en"
+msgstr "Available on"
+
+#: apppodcasts/templates/podcast.html:45
+msgid "No está en ninguna plataforma."
+msgstr "It is not available on any platform."
+
+#: apppodcasts/templates/podcast.html:49
+msgid "Comentarios"
+msgstr "Comments"
+
+#: apppodcasts/templates/podcast.html:53
+msgid "Deja tu comentario"
+msgstr "Leave a comment"
+
+#: apppodcasts/templates/podcast.html:56
+msgid "Publicar comentario"
+msgstr "Post comment"
+
+#: apppodcasts/templates/podcast.html:73
+msgid "Todavía no hay comentarios para este podcast. ¡Sé el primero en opinar!"
+msgstr "There are no comments for this podcast yet. Be the first to share your opinion!"
+
+#: apppodcasts/templates/podcasts.html:4 apppodcasts/templates/podcasts.html:7
+msgid "Lista de podcasts"
+msgstr "List of podcasts"
+
+#: apppodcasts/templates/podcasts.html:10
+msgid "Filtrar podcasts por nombre o temática..."
+msgstr "Filter podcasts by name or topic..."
+
+#: apppodcasts/templates/podcasts.html:22
+msgid "No se han encontrado podcasts que coincidan con tu búsqueda."
+msgstr "No podcasts match your search."
+
+#: apppodcasts/templates/podcasts.html:11
+#, python-format
+msgid "Mostrando %(visibles)s de %(total)s"
+msgstr "Showing %(visibles)s of %(total)s"
+
+#: apppodcasts/templates/tematica.html:7
+msgid "Volver a temáticas"
+msgstr "Back to topics"
+
+#: apppodcasts/templates/tematica.html:10
+msgid "Podcasts de esta temática"
+msgstr "Podcasts in this topic"
+
+#: apppodcasts/templates/tematica.html:18
+msgid "No hay podcasts en esta temática."
+msgstr "There are no podcasts in this topic."
+
+#: apppodcasts/templates/tematicas.html:4
+#: apppodcasts/templates/tematicas.html:7
+msgid "Lista de temáticas"
+msgstr "List of topics"
+
+#: apppodcasts/templates/tematicas.html:18
+msgid "No hay temáticas creadas."
+msgstr "There are no topics yet."
+
+#: apppodcasts/forms.py:12
+msgid "Tu nombre"
+msgstr "Your name"
+
+#: apppodcasts/forms.py:13
+msgid "Valoración"
+msgstr "Rating"
+
+#: apppodcasts/forms.py:14
+msgid "Comentario"
+msgstr "Comment"
+
+#: apppodcasts/forms.py:18
+msgid "Escribe tu nombre o alias"
+msgstr "Write your name or nickname"
+
+#: apppodcasts/forms.py:22
+msgid "Comparte tu opinión sobre este podcast..."
+msgstr "Share your opinion about this podcast..."
+
+#: apppodcasts/models.py:34
+msgid "1 ★ - Muy malo"
+msgstr "1 ★ - Very bad"
+
+#: apppodcasts/models.py:35
+msgid "2 ★ - Regular"
+msgstr "2 ★ - Fair"
+
+#: apppodcasts/models.py:36
+msgid "3 ★ - Bueno"
+msgstr "3 ★ - Good"
+
+#: apppodcasts/models.py:37
+msgid "4 ★ - Muy bueno"
+msgstr "4 ★ - Very good"
+
+#: apppodcasts/models.py:38
+msgid "5 ★ - Excelente"
+msgstr "5 ★ - Excellent"
+
